@@ -3,9 +3,9 @@ To configure new k8s context with SA created by this deployment, please run:
 export SA_NAME=$(kubectl get sa {{ template "kube-arangodb-init.name" . }}  -o jsonpath="{.secrets[*]['name']}")
 export TOKEN=$(kubectl get secret $SA_NAME -o jsonpath="{.data.token}" | base64 --decode; echo)
 export SERVER=$(kubectl config view --minify -o jsonpath="{.clusters[*]['cluster']['server']}")
+export CA_CRT=$(kubectl get secret $SA_NAME -o jsonpath="{.data['ca\.crt']}" | base64 --decode; echo)
 
-kubectl get secret $SA_NAME -o jsonpath="{.data['ca\.crt']}" | base64 --decode > ca.crt
-
-kubectl config set-cluster {{ .Release.Namespace }} --certificate-authority=ca.crt --server=$SERVER
+kubectl config set-cluster {{ .Release.Namespace }} --server=$SERVER --embed-certs --certificate-authority=<(echo $CA_CRT)
 kubectl config set-credentials {{ .Release.Namespace }} --token=$TOKEN
 kubectl config set-context {{ .Release.Namespace }} --cluster={{ .Release.Namespace }} --user={{ .Release.Namespace }} --namespace={{ .Release.Namespace }}
+kubectl config set current-context {{ .Release.Namespace }}

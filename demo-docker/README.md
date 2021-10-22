@@ -16,7 +16,5 @@ docker run -it --rm -v $KUBE_CFG_PATH:/root/.kube/config arangodb-demo
 
 ## Install kube-arangodb chart from docker
 ```shell
-export KUBE_CFG_PATH=~/.kube/config
-docker run -it --rm -v $KUBE_CFG_PATH:/root/.kube/config arangodb-demo
 >> helm install arango-deployment /chart/kube-arangodb.tar.gz --skip-crds
 ```

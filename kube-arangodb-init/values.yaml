@@ -2,7 +2,7 @@
 clusterRolesEnabled: true
 
 limits:
-  enabled: false
+  enabled: true
   cpuPerContainer:
     defaultLimit: 500m
     defaultRequest: 1000m
@@ -15,7 +15,7 @@ limits:
     maxLimit: 2Gi
 
 quotas:
-  enabled: false
+  enabled: true
   cpuPerNamespace:
     totalRequests: "10"
     totalLimits: "30"

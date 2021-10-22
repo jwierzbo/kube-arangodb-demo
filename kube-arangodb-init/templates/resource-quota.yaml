@@ -1,0 +1,12 @@
+{{- if .Values.quotas.enabled }}
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: {{ template "kube-arangodb-init.name" . }}
+spec:
+  hard:
+    requests.cpu: {{ .Values.quotas.cpuPerNamespace.totalRequests }}
+    requests.memory: {{ .Values.quotas.memoryPerNamespace.totalRequests }}
+    limits.cpu: {{ .Values.quotas.cpuPerNamespace.totalLimits }}
+    limits.memory: {{ .Values.quotas.memoryPerNamespace.totalLimits }}
+{{- end }}

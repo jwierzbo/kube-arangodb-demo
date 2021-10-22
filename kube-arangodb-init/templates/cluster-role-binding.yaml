@@ -1,3 +1,4 @@
+{{- if .Values.clusterRolesEnabled }}
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -10,3 +11,4 @@ roleRef:
   kind: ClusterRole
   name: {{ .Release.Namespace }}-{{ template "kube-arangodb-init.name" . }}-clusterroles
   apiGroup: rbac.authorization.k8s.io
+{{- end }}

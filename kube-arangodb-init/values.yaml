@@ -1,1 +1,24 @@
 ---
+clusterRolesEnabled: true
+
+limits:
+  enabled: false
+  cpuPerContainer:
+    defaultLimit: 500m
+    defaultRequest: 1000m
+    minRequest: 500m
+    maxLimit: 2000m
+  memoryPerContainer:
+    defaultLimit: 2Gi
+    defaultRequest: 1Gi
+    minRequest: 1Gi
+    maxLimit: 2Gi
+
+quotas:
+  enabled: false
+  cpuPerNamespace:
+    totalRequests: "10"
+    totalLimits: "30"
+  memoryPerNamespace:
+    totalRequests: 10Gi
+    totalLimits: 20Gi

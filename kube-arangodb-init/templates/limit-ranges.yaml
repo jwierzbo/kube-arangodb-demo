@@ -9,10 +9,6 @@ spec:
       cpu: {{ .Values.limits.cpuPerContainer.defaultLimit }}
     defaultRequest:
       cpu: {{ .Values.limits.cpuPerContainer.defaultRequest }}
-    min:
-      cpu: {{ .Values.limits.cpuPerContainer.minRequest }}
-    max:
-      cpu: {{ .Values.limits.cpuPerContainer.maxLimit }}
     type: Container
 
 ---
@@ -26,9 +22,5 @@ spec:
       memory: {{ .Values.limits.memoryPerContainer.defaultLimit }}
     defaultRequest:
       memory: {{ .Values.limits.memoryPerContainer.defaultRequest }}
-    min:
-      memory: {{ .Values.limits.memoryPerContainer.minRequest }}
-    max:
-      memory: {{ .Values.limits.memoryPerContainer.maxLimit }}
     type: Container
 {{- end }}

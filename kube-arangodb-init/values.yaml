@@ -4,15 +4,11 @@ clusterRolesEnabled: true
 limits:
   enabled: true
   cpuPerContainer:
-    defaultLimit: 500m
-    defaultRequest: 1000m
-    minRequest: 500m
-    maxLimit: 2000m
+    defaultRequest: 500m
+    defaultLimit: 1000m
   memoryPerContainer:
-    defaultLimit: 2Gi
     defaultRequest: 1Gi
-    minRequest: 1Gi
-    maxLimit: 2Gi
+    defaultLimit: 2Gi
 
 quotas:
   enabled: true

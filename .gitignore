@@ -1,0 +1,12 @@
+.*
+!/.*ignore
+
+# Idea
+.idea
+*.iml
+
+# helm subcharts
+charts
+requirements.lock
+
+ca.crt

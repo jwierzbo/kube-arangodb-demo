@@ -28,9 +28,5 @@ kubectl config set current-context demo-jwierzbo
 export version=1.2.3
 export URLPREFIX=https://github.com/arangodb/kube-arangodb/releases/download/${version}
 
-helm install arango-deployment $URLPREFIX/kube-arangodb-${version}.tgz --skip-crds \
-             --set operator.features.deployment=true \
-             --set operator.features.deploymentReplications=false \
-             --set operator.features.storage=false
-
+helm install arango-deployment $URLPREFIX/kube-arangodb-${version}.tgz --skip-crds
 ```
